@@ -5,6 +5,7 @@ const createReadStream = input => {
     return fs.createReadStream(input);
   } else if (!input) {
     process.stdout.write('Write input text =>');
+
     return process.stdin;
   }
 
