@@ -26,9 +26,9 @@ node index -a encode -s 7 -i "./input.txt" -o "./output.txt"
 ```
 
 ```bash
-node index --action encode --shift 7 --input plain.txt --output encoded.txt
+node index --action encode --shift 7 --input ./input.txt --output ./output.txt
 ```
 
 ```bash
-node index --action decode --shift 7 --input decoded.txt --output plain.txt
+node index --action decode --shift 7
 ```
