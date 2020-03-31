@@ -12,9 +12,9 @@ const createCaesarCipherTransformStream = (action, shift) => {
 
     _transform(chunk, encoding, callback) {
       if (action === 'encode') {
-        this.push(caesarCipher(chunk, Number(shift)));
+        this.push(caesarCipher(chunk.toString('utf-8'), Number(shift)));
       } else if (action === 'decode') {
-        this.push(caesarCipher(chunk, -Number(shift)));
+        this.push(caesarCipher(chunk.toString('utf-8'), -Number(shift)));
       }
 
       callback();
