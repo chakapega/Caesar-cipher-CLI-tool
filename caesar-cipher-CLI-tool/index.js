@@ -5,16 +5,16 @@ const createCaesarCipherTransformStream = require('./streams/transform');
 const createWriteStream = require('./streams/write');
 
 program
+  .option('-a, --action <type>')
   .option('-s, --shift <type>')
   .option('-i, --input <type>')
   .option('-o, --output <type>')
-  .option('-a, --action <type>')
   .parse(process.argv);
 
-console.log(program.shift);
-console.log(program.input);
-console.log(program.output);
-console.log(program.action);
+if (!program.action || !program.shift) {
+  process.stderr.write('Required arguments not passed\n');
+  process.exit(1);
+}
 
 const readStream = createReadStream(program.input);
 const transformStream = createCaesarCipherTransformStream(program.action, program.shift);
